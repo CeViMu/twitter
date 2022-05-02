@@ -23,6 +23,14 @@ class User {
     get getDateCreated(){
         return this.dateCreated
     }
+
+    set setUsername(newUsername){
+        this.username = newUsername
+    }
+
+    set setBio(newBio){
+        this.bio = newBio
+    }
 }
 
 
