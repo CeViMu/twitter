@@ -1,3 +1,4 @@
+const User = require('../../app/models/user')
 const UserService = require('./../../app/services/UserService')
 
 describe("Test para UserService", ()=>{
@@ -22,6 +23,16 @@ describe("Test para UserService", ()=>{
         const user = UserService.create(1,"CeciliaMuC","Cecilia")
         UserService.updateUserUsername(user, "Vianey")
         expect(user.username).toBe("Vianey")
+    })
+
+    test("Requerimiento 4: Regresar la lista de los Usernames", ()=>{
+        const user1 = UserService.create(1,"CeciliaMuC1","Cecilia")
+        const user2 = UserService.create(1,"CeciliaMuC2","Cecilia")
+        const user3 = UserService.create(1,"CeciliaMuC3","Cecilia")
+        const usernames = UserService.getAllUsernames([user1, user2, user3])
+        expect(usernames).toContain("CeciliaMuC1")
+        expect(usernames).toContain("CeciliaMuC2")
+        expect(usernames).toContain("CeciliaMuC3")
     })
 
 
