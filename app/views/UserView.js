@@ -6,7 +6,7 @@ class UserView{
         console.log("Error es null")
         return {error: "El payload no existe."}
     }else if (typeof payload.username == 'string' && typeof payload.name === 'string' && typeof payload.id === 'number'){
-        return UserService.create(payload.id, payload.username, payload.user)
+        return UserService.create(payload.id, payload.username, payload.name)
     }else{
         return {error: "Error, las propiedades del payload necesitan tener un valor válido"}
     }
